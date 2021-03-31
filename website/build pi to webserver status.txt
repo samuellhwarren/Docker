@@ -22,9 +22,9 @@ sudo service ssh restart
 create config and edit
  
 sudo nano /etc/hostname
-change to samuelwarrenconsulting.com
+change to domain name
 sudo nano /etc/hosts
-change 127.0.0.1 to samuelwarrenconsulting.com
+change 127.0.0.1 to domain name
 
 
 sudo nano /boot/config.txt
@@ -88,7 +88,7 @@ sam@samuelwarrenconsulting:~/.secrets $ cd ~
 sam@samuelwarrenconsulting:~ $ chmod 0400 ~/.secrets/cloudflare.ini
 chmod: changing permissions of '/home/sam/.secrets/cloudflare.ini': Operation not permitted
 sam@samuelwarrenconsulting:~ $ sudo chmod 0400 ~/.secrets/cloudflare.ini
-sam@samuelwarrenconsulting:~ $ sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/sam/.secrets/cloudflare.ini -d *.samuelwarrenconsulting.com --preferred-challenges dns-01  
+sam@samuelwarrenconsulting:~ $ sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/sam/.secrets/cloudflare.ini -d *.domainname.com --preferred-challenges dns-01  
 
 sudo apt-get install zip
 Reading package lists... Done
@@ -111,43 +111,10 @@ Processing triggers for man-db (2.8.5-2) ...
 sam@samuelwarrenconsulting:~ $ sudo    zip -r lib_le.zip /var/lib/letsencrypt/
   adding: var/lib/letsencrypt/ (stored 0%)
 sam@samuelwarrenconsulting:~ $ sudo    zip -r etc_le.zip /etc/letsencrypt/
-  adding: etc/letsencrypt/ (stored 0%)
-  adding: etc/letsencrypt/cli.ini (deflated 17%)
-  adding: etc/letsencrypt/renewal/ (stored 0%)
-  adding: etc/letsencrypt/renewal/samuelwarrenconsulting.com.conf (deflated 54%)
-  adding: etc/letsencrypt/csr/ (stored 0%)
-  adding: etc/letsencrypt/csr/0000_csr-certbot.pem (deflated 22%)
-  adding: etc/letsencrypt/archive/ (stored 0%)
-  adding: etc/letsencrypt/archive/samuelwarrenconsulting.com/ (stored 0%)
-  adding: etc/letsencrypt/archive/samuelwarrenconsulting.com/chain1.pem (deflated 27%)
-  adding: etc/letsencrypt/archive/samuelwarrenconsulting.com/privkey1.pem (deflated 23%)
-  adding: etc/letsencrypt/archive/samuelwarrenconsulting.com/fullchain1.pem (deflated 31%)
-  adding: etc/letsencrypt/archive/samuelwarrenconsulting.com/cert1.pem (deflated 28%)
-  adding: etc/letsencrypt/keys/ (stored 0%)
-  adding: etc/letsencrypt/keys/0000_key-certbot.pem (deflated 23%)
-  adding: etc/letsencrypt/live/ (stored 0%)
-  adding: etc/letsencrypt/live/samuelwarrenconsulting.com/ (stored 0%)
-  adding: etc/letsencrypt/live/samuelwarrenconsulting.com/privkey.pem (deflated 23%)
-  adding: etc/letsencrypt/live/samuelwarrenconsulting.com/cert.pem (deflated 28%)
-  adding: etc/letsencrypt/live/samuelwarrenconsulting.com/README (deflated 40%)
-  adding: etc/letsencrypt/live/samuelwarrenconsulting.com/fullchain.pem (deflated 31%)
-  adding: etc/letsencrypt/live/samuelwarrenconsulting.com/chain.pem (deflated 27%)
-  adding: etc/letsencrypt/live/README (deflated 42%)
-  adding: etc/letsencrypt/accounts/ (stored 0%)
-  adding: etc/letsencrypt/accounts/acme-v02.api.letsencrypt.org/ (stored 0%)
-  adding: etc/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/ (stored 0%)
-  adding: etc/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/c807ad25b8af59ab2257be57bb44d16d/ (stored 0%)
-  adding: etc/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/c807ad25b8af59ab2257be57bb44d16d/private_key.json (deflated 23%)
-  adding: etc/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/c807ad25b8af59ab2257be57bb44d16d/meta.json (deflated 13%)
-  adding: etc/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/c807ad25b8af59ab2257be57bb44d16d/regr.json (deflated 8%)
-  adding: etc/letsencrypt/renewal-hooks/ (stored 0%)
-  adding: etc/letsencrypt/renewal-hooks/post/ (stored 0%)
-  adding: etc/letsencrypt/renewal-hooks/pre/ (stored 0%)
-  adding: etc/letsencrypt/renewal-hooks/deploy/ (stored 0%)
 sam@samuelwarrenconsulting:~ $                                                               
 docker-compose up -d
 
-go to Samuelwarrenconsulting.com and login
+go to domain.com and login
 
 install WP
 Install plugin UpdraftPlus
