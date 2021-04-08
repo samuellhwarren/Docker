@@ -31,8 +31,8 @@ sudo nano /boot/config.txt
 
 scroll to bottom and add 
 #overclock lines
-arm_freq=1800 (1.8ghz)
-over_voltage=2
+arm_freq=2000 (2ghz)
+over_voltage=8
 
 sudo shutdown -r now
 
@@ -74,44 +74,19 @@ restart terminal session
 
 install certbot python3-certbot-cloudflare
 create directory .secrets
-chmod 0700 .secrets
-cd .secrets
 
-sam@samuelwarrenconsulting:~ $ sam@samuelwarrenconsulting:~ $ mkdir .secrets
-sam@samuelwarrenconsulting:~ $ chmod 0700 .secrets/
-sam@samuelwarrenconsulting:~ $ cd .secrets/
-sam@samuelwarrenconsulting:~/.secrets $ sudo nano cloudflare.ini
-sam@samuelwarrenconsulting:~/.secrets $ chmod 0400 ~/.secrets/cloudflare.ini
-chmod: changing permissions of '/home/sam/.secrets/cloudflare.ini': Operation not permitted
-sam@samuelwarrenconsulting:~/.secrets $ sudo chmod 0400 ~/.secrets/cloudflare.ini
-sam@samuelwarrenconsulting:~/.secrets $ cd ~
-sam@samuelwarrenconsulting:~ $ chmod 0400 ~/.secrets/cloudflare.ini
-chmod: changing permissions of '/home/sam/.secrets/cloudflare.ini': Operation not permitted
-sam@samuelwarrenconsulting:~ $ sudo chmod 0400 ~/.secrets/cloudflare.ini
-sam@samuelwarrenconsulting:~ $ sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/sam/.secrets/cloudflare.ini -d *.domainname.com --preferred-challenges dns-01  
+mkdir .secrets
+chmod 0700 .secrets/
+
+cd ~/.secrets/
+sudo nano cloudflare.ini
+sudo chmod 0400 ~/.secrets/cloudflare.ini
+sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/<USER>/.secrets/cloudflare.ini -d *.domainname.com --preferred-challenges dns-01  
 
 sudo apt-get install zip
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-The following NEW packages will be installed:
-  zip
-0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
-Need to get 212 kB of archives.
-After this operation, 542 kB of additional disk space will be used.
-Get:1 http://mirror.web-ster.com/raspbian/raspbian buster/main armhf zip armhf 3.0-11 [212 kB]
-0% [1 zip 0 B/212 kB 0%]
-Fetched 212 kB in 1s (361 kB/s)
-Selecting previously unselected package zip.
-(Reading database ... 100082 files and directories currently installed.)
-Preparing to unpack .../archives/zip_3.0-11_armhf.deb ...
-Unpacking zip (3.0-11) ...
-Setting up zip (3.0-11) ...
-Processing triggers for man-db (2.8.5-2) ...
-sam@samuelwarrenconsulting:~ $ sudo    zip -r lib_le.zip /var/lib/letsencrypt/
-  adding: var/lib/letsencrypt/ (stored 0%)
-sam@samuelwarrenconsulting:~ $ sudo    zip -r etc_le.zip /etc/letsencrypt/
-sam@samuelwarrenconsulting:~ $                                                               
+sudo    zip -r lib_le.zip /var/lib/letsencrypt/
+sudo    zip -r etc_le.zip /etc/letsencrypt/
+                                            
 docker-compose up -d
 
 go to domain.com and login
@@ -120,4 +95,13 @@ install WP
 Install plugin UpdraftPlus
 connect to Google
 do a full restore on most recent date
+
+-- ADDS RDP
+sudo apt-get install xrdp -y
+sudo apt-get install tightvncserver -y
+
+open RDP client of choice, type ip address of device username and password
+
+-- start up website script
+create a shell file 
 
