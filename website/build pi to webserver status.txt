@@ -6,12 +6,12 @@ sudo apt-get install software-properties-common
 sudo apt-get install openssh server
 
 
-adduser sam 
-usermod -aG sudo sam
+adduser <<Your Username here>> 
+usermod -aG sudo <<Username>>
 
 ssh-keygen -t rsa -b 4096 -f sam_key
-cat sam_key.pub >>authorized_keys
-scp sam@192.168.118.65:/home/sam/.ssh/sam_key ./.ssh/sam_key
+cat key.pub >>authorized_keys
+scp <<username>>@<<Ip of Pi >>:/home/sam/.ssh/sam_key ./.ssh/sam_key
 
 sudo nano /etc/ssh/sshd_config
 uncomment passwordauthentication yes 
